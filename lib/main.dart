@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_dicoding/DetailsScreen.dart';
+import 'package:wisata_dicoding/MainScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Wisata Aceh",
       theme: ThemeData(),
-      home: DetailsScreen(),
+      home: MainScreen(),
     );
   }
 }
