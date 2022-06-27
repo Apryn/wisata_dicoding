@@ -15,11 +15,19 @@ class DetailsScreen extends StatelessWidget {
           children: [
             Stack(children: [
               Image.asset(place.imageAsset!),
-              IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(Icons.arrow_back))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.arrow_back),
+                    color: Colors.white,
+                  ),
+                  favoriteButton(),
+                ],
+              )
             ]),
             Container(
               margin: EdgeInsets.only(top: 15),
@@ -101,5 +109,30 @@ class DetailsScreen extends StatelessWidget {
         ),
       ),
     ));
+  }
+}
+
+class favoriteButton extends StatefulWidget {
+  const favoriteButton({Key? key}) : super(key: key);
+
+  @override
+  State<favoriteButton> createState() => _favoriteButtonState();
+}
+
+bool isfavorite = false;
+
+class _favoriteButtonState extends State<favoriteButton> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          setState(() {
+            isfavorite = !isfavorite;
+          });
+        },
+        icon: Icon(
+          isfavorite ? Icons.favorite : Icons.favorite_border,
+          color: Colors.red,
+        ));
   }
 }
